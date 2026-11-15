@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   THEME - change the colors of the WHOLE website here
+   (only edit the 8 color lines in the first block)
+   ===================================================== */
+:root {
+    --bg: #0B1120;          /* main page background */
+    --bg-alt: #0F172A;      /* alternate section background */
+    --bg-deep: #070B14;     /* footer background */
+    --surface: #111827;     /* cards, inputs */
+    --border: #1E293B;      /* borders and lines */
+    --accent: #22d3ee;      /* main accent (cyan) */
+    --accent-2: #3b82f6;    /* second accent (blue) */
+    --accent-3: #8b5cf6;    /* third accent (violet) - end of the gradient */
+
+    /* soft versions - made automatically, don't edit */
+    --accent-15: color-mix(in srgb, var(--accent) 15%, transparent);
+    --accent-3-15: color-mix(in srgb, var(--accent-3) 15%, transparent);
+    --accent-3-40: color-mix(in srgb, var(--accent-3) 40%, transparent);
+    --accent-20: color-mix(in srgb, var(--accent) 20%, transparent);
+    --accent-35: color-mix(in srgb, var(--accent) 35%, transparent);
+    --accent-40: color-mix(in srgb, var(--accent) 40%, transparent);
+    --accent-50: color-mix(in srgb, var(--accent) 50%, transparent);
+    --accent-2-40: color-mix(in srgb, var(--accent-2) 40%, transparent);
+    --accent-2-50: color-mix(in srgb, var(--accent-2) 50%, transparent);
+    --accent-2-60: color-mix(in srgb, var(--accent-2) 60%, transparent);
+    --accent-2-70: color-mix(in srgb, var(--accent-2) 70%, transparent);
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:
+        radial-gradient(circle at 15% 10%, var(--accent-15), transparent 40%),
+        radial-gradient(circle at 90% 80%, var(--accent-3-15), transparent 45%),
+        linear-gradient(to bottom right, var(--bg), var(--bg-alt));
+
+    min-height: 100vh;
+    /* اقل حاجه 100 كله و يطبقه مش يحطه شرط */
+}
+
+.divhalf1 {
+
+    /* height: 80vh; */
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+}
+
+/* Chrome, Edge, Brave */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent), var(--accent-2), var(--accent-3));
+    border-radius: 100px;
+    border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--accent-3), var(--accent-2), var(--accent));
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* html,
+body,
+#root {
+    width: 100%;
+    overflow-x: hidden;
+}
+    
+width 100% maeks the width of the web as the screen exactly not more
+
+3. #root
+
+This is the div React mounts into.
+
+<body>
+    <div id="root"></div>
+</body>
+
+the whole div that holds every thing
+
+overflow-x: اي حاجه تمتد الى بره تبظ لبره overflowed 
+so its simply hidden = clipped not showen any more
+anything sticking outside the screen is simply clipped.
+
+
+width 100% dont cause any scroll problem
+
+w 100vw can cause problem it doesnt follow the parent width it breaks it and it make the full viewport of the browser
+
+*/
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background: var(--bg);
+}
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+
+/* ===== Hero aurora ===== */
+.aurora-blob {
+    position: absolute;
+    border-radius: 9999px;
+    will-change: transform;
+}
+
+.aurora-1 {
+    width: 34rem;
+    height: 34rem;
+    top: -8rem;
+    left: -6rem;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    opacity: 0.35;
+    animation: drift1 18s ease-in-out infinite alternate;
+}
+
+.aurora-2 {
+    width: 30rem;
+    height: 30rem;
+    bottom: -10rem;
+    right: 5%;
+    background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
+    opacity: 0.40;
+    animation: drift2 22s ease-in-out infinite alternate;
+}
+
+.aurora-3 {
+    width: 22rem;
+    height: 22rem;
+    top: 30%;
+    left: 45%;
+    background: radial-gradient(circle, var(--accent-3) 0%, transparent 70%);
+    opacity: 0.30;
+    animation: drift3 26s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 {
+    to { transform: translate(14rem, 8rem) scale(1.2); }
+}
+
+@keyframes drift2 {
+    to { transform: translate(-12rem, -6rem) scale(1.15); }
+}
+
+@keyframes drift3 {
+    to { transform: translate(-8rem, 7rem) scale(0.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aurora-blob {
+        animation: none;
+    }
+}
+
+
+/* ===== Section gradient backgrounds ===== */
+.bg-grad-1 {
+    background:
+        radial-gradient(circle at 85% 0%, var(--accent-3-15), transparent 45%),
+        linear-gradient(180deg, var(--bg), var(--bg-alt));
+}
+
+.bg-grad-2 {
+    background:
+        radial-gradient(circle at 10% 0%, var(--accent-15), transparent 45%),
+        linear-gradient(180deg, var(--bg-alt), var(--bg));
+}
+
+.bg-grad-3 {
+    background:
+        radial-gradient(circle at 90% 0%, var(--accent-3-15), transparent 40%),
+        linear-gradient(180deg, var(--bg), var(--bg-deep));
+}

@@ -1,0 +1,58 @@
+/* No fixed height any more: a fixed 900px broke small screens. */
+.projects {
+    height: auto;
+}
+
+.IMAGE {
+    background-image: url(../IMAGES/p4.jpg);
+    background-size: cover;
+}
+
+.IMAGE1 {
+    background-image: url(../IMAGES/p5.jpg);
+    background-size: cover;
+}
+
+.IMAGE2 {
+    background-image: url(../IMAGES/p6.png);
+    background-size: cover;
+}
+
+/* Hover lift only on devices that really hover (mouse), so cards
+   don't stay "stuck" raised after a tap on phones. */
+@media (hover: hover) {
+    .main:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 40px var(--accent-20);
+    }
+
+    .main:hover .btnview {
+        display: block;
+    }
+}
+
+.tabs-list {
+    display: flex;
+    border: 1px solid #6b7280;
+    border-radius: 999px;
+    padding: 9px;
+    gap: 6px;
+    width: fit-content;
+}
+
+/* Smaller tabs on phones, original size from 640px up */
+.tabs-trigger {
+    padding: 10px 18px;
+    border-radius: 28px;
+}
+
+@media (min-width: 640px) {
+    .tabs-trigger {
+        padding: 12px 35px;
+    }
+}
+
+.tabs-trigger[data-state="active"] {
+    background: linear-gradient(to right, var(--accent), var(--accent-2), var(--accent-3));
+    color: white;
+}

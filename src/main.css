@@ -1,0 +1,12 @@
+.bigmain {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* background-image: url(../../Downloads/ChatGPT\ Image\ Jul\ 21\,\ 2026\,\ 08_06_54\ PM.png); */
+    background-size: cover;
+
+    width: 100vw;
+    height: 100vh;
+
+}

@@ -1,0 +1,1 @@
+note the components must be inside the src

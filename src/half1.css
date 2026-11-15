@@ -1,0 +1,62 @@
+.swiper {
+    overflow: visible !important;
+    padding: 40px 0 70px;
+}
+
+.swiper-wrapper {
+    overflow: visible !important;
+    align-items: center;
+}
+
+.swiper-slide {
+    overflow: visible !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+/* 
+overflow: hidden;
+
+everything outside gets cut.
+as the glow : filter drop shadow goes out
+
+*/
+
+
+.circle-glow {
+    transition: .35s;
+}
+
+.circle-glow:hover {
+    transform: scale(1.08);
+}
+
+/* Navigation */
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--accent);
+    transition: .3s;
+    width: 17px;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
+/* Pagination */
+
+.swiper-pagination-bullet {
+    background: gray;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--accent);
+    width: 24px;
+    border-radius: 999px;
+}
