@@ -9,7 +9,7 @@ import "../projects.css";
 const GITHUB_USER = "NOUR-ELDIN-AMR";
 
 // Repos you do NOT want on the website (use the exact repo names).
-const HIDDEN = ["NOUR-ELDIN-AMR"]; // profile README repo, add more if needed
+const HIDDEN = ["NOUR-ELDIN-AMR", "Computer-science-certificate-year-one"]; // profile README repo + certificate
 
 // Optional: customise how a specific repo looks on the site.
 // Everything is optional – leave a field out to use what GitHub provides.
@@ -22,7 +22,7 @@ const OVERRIDES = {
     // },
 };
 
-const CACHE_KEY = `gh-repos-${GITHUB_USER}`;
+const CACHE_KEY = `gh-repos-v2-${GITHUB_USER}`; // "v2": ignores the old cached list
 const CACHE_MINUTES = 10; // avoids GitHub's rate limit (60 requests/hour)
 
 /* ------------------------------------------------------------------ */
@@ -70,13 +70,20 @@ function toProject(repo) {
 /*  Data hook                                                         */
 /* ------------------------------------------------------------------ */
 
+// The cache stores the RAW repo list, and filtering happens every time.
+// So changing HIDDEN / OVERRIDES takes effect immediately.
+const buildProjects = (repos) =>
+    repos
+        .filter((r) => !r.fork && !r.archived && !HIDDEN.includes(r.name))
+        .map(toProject);
+
 function useGithubProjects() {
     const [state, setState] = useState({ loading: true, error: false, projects: [] });
 
     useEffect(() => {
         const cached = readCache();
         if (cached) {
-            setState({ loading: false, error: false, projects: cached });
+            setState({ loading: false, error: false, projects: buildProjects(cached) });
             return;
         }
 
@@ -90,11 +97,8 @@ function useGithubProjects() {
                 return res.json();
             })
             .then((repos) => {
-                const projects = repos
-                    .filter((r) => !r.fork && !r.archived && !HIDDEN.includes(r.name))
-                    .map(toProject);
-                writeCache(projects);
-                setState({ loading: false, error: false, projects });
+                writeCache(repos);
+                setState({ loading: false, error: false, projects: buildProjects(repos) });
             })
             .catch((err) => {
                 if (err.name !== "AbortError") {
