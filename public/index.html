@@ -2,42 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+
+    <!-- Title & description (what Google and browser tabs show) -->
+    <title>Nour Eldin Amr | Full-Stack Developer</title>
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Portfolio of Nour Eldin Amr, a Full-Stack Developer from Cairo, Egypt. I build fast, responsive web apps with React, Tailwind CSS, Node.js, Express and MongoDB."
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta
+      name="keywords"
+      content="Nour Eldin Amr, full-stack developer, front-end developer, React developer, MERN stack, Node.js, portfolio, Egypt"
+    />
+    <meta name="author" content="Nour Eldin Amr" />
+    <meta name="robots" content="index, follow" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Portfolio</title>
+    <!-- Replace with your real Vercel link after deploying -->
+    <link rel="canonical" href="https://YOUR-SITE.vercel.app/" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Browser UI colors (mobile address bar, etc.) -->
+    <meta name="theme-color" content="#0B1120" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- Social sharing preview (WhatsApp, LinkedIn, Facebook, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nour Eldin Amr" />
+    <meta property="og:title" content="Nour Eldin Amr | Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="Responsive web apps with React, Node.js, Express and MongoDB. Explore my skills and projects."
+    />
+    <meta property="og:url" content="https://YOUR-SITE.vercel.app/" />
+    <!-- 1200x630 image placed in the public folder, referenced with the full link -->
+    <meta property="og:image" content="https://YOUR-SITE.vercel.app/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nour Eldin Amr | Full-Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Responsive web apps with React, Node.js, Express and MongoDB."
+    />
+    <meta name="twitter:image" content="https://YOUR-SITE.vercel.app/og-image.png" />
+
+    <!-- Speeds up loading your GitHub projects -->
+    <link rel="preconnect" href="https://api.github.com" crossorigin />
+    <link rel="preconnect" href="https://opengraph.githubassets.com" crossorigin />
+
+    <!-- Dark background from the first frame (no white flash while React loads) -->
+    <style>
+      html,
+      body {
+        background: #0b1120;
+        color: #e5e7eb;
+      }
+      .noscript-msg {
+        font-family: system-ui, sans-serif;
+        text-align: center;
+        padding: 4rem 1.5rem;
+      }
+    </style>
+
+    <!-- Structured data: helps Google understand who you are -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nour Eldin Amr",
+        "jobTitle": "Full-Stack Developer",
+        "url": "https://YOUR-SITE.vercel.app/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cairo",
+          "addressCountry": "EG"
+        },
+        "sameAs": [
+          "https://github.com/NOUR-ELDIN-AMR",
+          "https://www.linkedin.com/in/YOUR-PROFILE"
+        ]
+      }
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <p class="noscript-msg">Please enable JavaScript to view this portfolio.</p>
+    </noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
